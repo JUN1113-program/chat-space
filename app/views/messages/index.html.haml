@@ -1,11 +1,16 @@
 
+
+.header
+  グループを作成しました
+
+
 .clumn
   .clumn__main-group
     testuser
-    .clumn__main-group__create 
-      o
-    .clumn__main-group__setting 
-      x
+    .clumn__main-group__setting
+      = fa_icon("cog")
+    .clumn__main-group__create
+      = fa_icon("edit")
   .clumn__groups
     .clumn__groups__group
       test-group
@@ -37,7 +42,7 @@
     .post-area__bar
       type a messages
       .post-area__bar__image-button
-        []
+        = fa_icon("image lg")
     .post-area__button
       Send
 
