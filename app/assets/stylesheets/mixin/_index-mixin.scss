@@ -1,0 +1,13 @@
+// 高さを設定しテキストの中央寄せを行う
+@mixin text-center($height: auto,$align: unset){
+  height: $height;
+  line-height: $height;
+  text-align: $align;
+}
+
+// 文字の色、サイズ、太さを決定する
+@mixin font-data($color: black, $size: 15px, $weight: normal) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;  
+}
