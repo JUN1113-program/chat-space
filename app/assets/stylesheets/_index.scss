@@ -63,7 +63,7 @@ body{
     box-sizing: border-box;
     border-bottom: solid 3px #eeeeee;
     padding: 0 40px;
-    display:flex;
+    display: flex;
     &__group{
       @include font-data(#333333, 20px);
       flex: 10 1 200px;
@@ -86,12 +86,12 @@ body{
   }
 
   .log-area{
-    padding: 100px 40px 0px;
+    padding: 146px 40px 0px;
     background-color: #fafafa;
     min-height: 300vh;
     height: auto;
     &__log{
-      padding: 46px 0px 40px;
+      padding: 0px 0px 40px;
       &__name{
         @include font-data($light-black, 16px, bold);
         float: left;
@@ -112,27 +112,45 @@ body{
     background-color: #dcdcdc;
     position: fixed;
     bottom: 0;
-    width: calc(100vw - 380px);
-    padding: 20px 40px;
+    width: calc(100vw - 300px);
+    padding: 20px 0px 20px;
     display:flex;
     flex-flow: row wrap;
     &__bar{
-      @include text-center(50px);
-      @include font-data($light-black, 16px);
-      flex: 10 10 30px;
+      position: relative;
       background-color: $white;
-      padding-left: 10px;
+      flex: 20 20 100px;
+      margin-left: 40px;
+      &__input{
+        @include text-center(50px);
+        @include font-data($light-black, 16px);
+        position: absolute;
+        padding-left: 10px;
+        width: 100%;
+      }
       &__image-button{
-        float: right;
-        margin-right: 10px;
+        @include text-center(50px);
+        position: absolute;
+        right: 10px;
       }
     }
     &__button{
       @include text-center(50px,center);
       @include font-data($white, 15px);
       flex: 1 1 50px;
+      width: 100px;
       margin-left: 15px;
       background-color: $light-blue;
+      margin-right: 40px;
     }
+    #image-select{
+      display: none;
+    }
+  }
+}
+
+a{
+  &:visited{
+    color: $white;
   }
 }
