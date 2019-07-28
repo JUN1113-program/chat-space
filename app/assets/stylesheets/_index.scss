@@ -4,18 +4,8 @@ body{
   height: 100vh;
 }
 
-.header{
-  @include text-center(25px,center);
-  @include font-data($white, 18px);
-  position: fixed;
-  background-color: $light-blue;
-  width: 100vw;
-  z-index: 15;
-}
-
 .clumn{
   @include font-data($white, 16px, bold);
-  padding-top: 25px;
   position: fixed;
   float: left;
   z-index: 11;
@@ -50,7 +40,6 @@ body{
 }
 
 .chat-area{
-  padding-top: 25px;
   height: 100%;
   width: calc(100vw - 300px);
   float: right;
