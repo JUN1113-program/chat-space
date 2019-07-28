@@ -5,9 +5,11 @@
   .clumn__main-group
     testuser
     .clumn__main-group__setting
-      = fa_icon("cog")
+      = link_to "" do
+        = fa_icon("cog lg")
     .clumn__main-group__create
-      = fa_icon("edit")
+      = link_to "" do
+        = fa_icon("edit lg")
   .clumn__groups
     = render partial: 'group.html.haml' 
 
@@ -16,14 +18,13 @@
     .edit-area__group 
       test-group
       %p.edit-area__group__member member:user
-    .edit-area__edit-button Edit
+    .edit-area__edit-button edit
   .log-area
     = render partial: 'chat-log.html.haml'
-  .post-area
+  %form.post-area
     .post-area__bar
-      type a messages
-      .post-area__bar__image-button
+      %input.post-area__bar__input(type = "text" value = "" placeholder= "type a messages")
+      %label.post-area__bar__image-button
+        %input#image-select(type = "file" value = "image")
         = fa_icon("image lg")
-    .post-area__button
-      Send
-
+    %input.post-area__button(type = "submit" value = "Send")
