@@ -4,7 +4,21 @@ body{
   width: 100vw;
   height: 100vh;
 }
+
+.header{
+  position: fixed;
+  background-color: #38AEF0;
+  width: 100vw;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  z-index: 15;
+  font-size:18px;
+  color: white;
+}
+
 .clumn{
+  padding-top: 25px;
   position: fixed;
   float: left;
   z-index: 11;
@@ -23,6 +37,7 @@ body{
       float: right;
     }
     &__setting{
+      margin-left: 3px;
       float: right;
     }
   }
@@ -41,6 +56,7 @@ body{
 }
 
 .chat-area{
+  padding-top: 25px;
   height: 100%;
   width: calc(100vw - 300px);
   float: right;
@@ -80,7 +96,7 @@ body{
   }
 
   .log-area{
-    padding-top: 200px;
+    padding-top: 100px;
     background-color: #fafafa;
     min-height: 300vh;
     height: auto;
