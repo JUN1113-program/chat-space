@@ -1,5 +1,5 @@
 // フォームやbuttonにはじめから適応されているCSSを打ち消す
-input, button, textarea, select {
+@mixin reset_form {
   margin: 0;
   padding: 0;
   background: none;
