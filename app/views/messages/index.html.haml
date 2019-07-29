@@ -5,9 +5,10 @@
     .edit-area__group 
       test-group
       %p.edit-area__group__member member:user
-    .edit-area__edit-button edit
+    =link_to "/groups/2/edit" do
+      .edit-area__edit-button edit
   .log-area
-    = render partial: 'chat-log.html.haml'
+    = render partial: 'shared/chat-log.html.haml'
   %form.post-area
     .post-area__bar
       %input.post-area__bar__input(type = "text" value = "" placeholder= "type a messages")
