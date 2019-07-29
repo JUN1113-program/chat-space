@@ -5,7 +5,7 @@
       = link_to edit_user_path(current_user.id) do
         = fa_icon("cog lg")
     .clumn__main-group__create
-      = link_to "" do
+      = link_to new_group_path do
         = fa_icon("edit lg")
   .clumn__groups
     = render partial: 'group.html.haml' 
