@@ -98,6 +98,7 @@ body{
   }
 
   .post-area{
+    @include reset_form;
     background-color: #dcdcdc;
     position: fixed;
     bottom: 0;
@@ -105,6 +106,7 @@ body{
     padding: 20px 0px 20px;
     display:flex;
     flex-flow: row wrap;
+    
     &__bar{
       position: relative;
       background-color: $white;
