@@ -1,0 +1,11 @@
+.clumn
+  .clumn__main-group
+    = current_user.name
+    .clumn__main-group__setting
+      = link_to edit_user_path(current_user.id) do
+        = fa_icon("cog lg")
+    .clumn__main-group__create
+      = link_to new_group_path do
+        = fa_icon("edit lg")
+  .clumn__groups
+    = render partial: '/shared/group.html.haml', collection: current_user.groups
