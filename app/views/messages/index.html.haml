@@ -9,10 +9,11 @@
       .edit-area__edit-button edit
   .log-area
     = render partial: 'shared/chat-log.html.haml'
-  %form.post-area
-    .post-area__bar
-      %input.post-area__bar__input(type = "text" value = "" placeholder= "type a messages")
-      %label.post-area__bar__image-button
-        %input#image-select(type = "file" value = "image")
-        = fa_icon("image lg")
-    %input.post-area__button(type = "submit" value = "Send")
+  = form_for [@group, @message] do |f| 
+    .post-area
+      .post-area__bar
+        = f.text_field :content, placeholder: "type a messages", class: "post-area__bar__input"
+        = f.label :image, class: "post-area__bar__image-button" do
+          = fa_icon("image lg")
+          = f.file_field :image, class: "image-select"
+      = f.submit "Send", class: "post-area__button"
