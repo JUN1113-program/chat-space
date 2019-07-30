@@ -1,4 +1,5 @@
 = link_to group_messages_path(group) do
   .clumn__groups__group
     = group.name
-    %p.clumn__groups__group--small new masseages
+    %p.clumn__groups__group--small
+      = group.show_last_message
