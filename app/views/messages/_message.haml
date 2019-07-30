@@ -1,0 +1,9 @@
+.log-area__log
+  %p.log-area__log__name  
+    = message.user.name
+  %p.log-area__log__date
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
+  - if message.content.present?
+    %p.log-area__log__text
+      = message.content
+  = image_tag message.image.url, class: "log-area__log__image" if message.image.present?

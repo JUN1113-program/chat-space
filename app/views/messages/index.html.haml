@@ -2,13 +2,17 @@
 
 .chat-area
   .edit-area
-    .edit-area__group 
-      test-group
-      %p.edit-area__group__member member:user
+    .edit-area__group
+      = @group.name
+      .edit-area__group__member--span
+      %span.edit-area__group__member 
+        Member:
+        - @group.users.each do |user|
+          = user.name
     =link_to "/groups/2/edit" do
       .edit-area__edit-button edit
   .log-area
-    = render partial: 'shared/chat-log.html.haml'
+    = render @messages 
   = form_for [@group, @message] do |f| 
     .post-area
       .post-area__bar
