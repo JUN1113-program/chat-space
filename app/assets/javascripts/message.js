@@ -5,35 +5,16 @@ $(function(){
   var logArea = $('.log-area');
 
   function buildHTML(message){
-    if (message.image == null){
-      var html = `
+    var content = message.content ?`<p class='log-area__log__text'>${message.content}</p>` : "";
+    var image = message.image ?`<img class="log-area__log__image" src= ${message.image}/>` : "";
+    var html = `
       <div class = log-area__log>
         <p class='log-area__log__name'>${message.name}</p>
         <p class='log-area__log__date'>${message.time}</p>
-        <p class='log-area__log__text'>${message.content}</p>
-      </div>
-        `
+        ${content}
+        ${image}
+      </div>`
       return html;
-    }else if(message.content == ""){
-      var html = `
-      <div class = log-area__log>
-        <p class='log-area__log__name'>${message.name}</p>
-        <p class='log-area__log__date'>${message.time}</p>
-        <img class="log-area__log__image" src= ${message.image}/>
-      </div>
-        `
-      return html;
-    }else{
-      var html = `
-      <div class = log-area__log>
-        <p class='log-area__log__name'>${message.name}</p>
-        <p class='log-area__log__date'>${message.time}</p>
-        <p class='log-area__log__text'>${message.content}</p>
-        <img class="log-area__log__image" src=${message.image}/>
-      </div>
-        `
-      return html;
-    }
   };
  
   inputForm.on("submit", function(e){
@@ -51,7 +32,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       logArea.append(html);
-      input.val('');
+      document.forms["new_message"].reset();
       var height = logArea.height();
       $('html,body').animate({scrollTop: height}, 500, 'swing');
       button.attr('disabled',false);
