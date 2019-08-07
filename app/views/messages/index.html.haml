@@ -9,7 +9,7 @@
         Member:
         - @group.users.each do |user|
           = user.name
-    =link_to "/groups/2/edit" do
+    =link_to edit_group_path(@group.id) do
       .edit-area__edit-button edit
   .log-area
     = render @messages 
