@@ -45,6 +45,7 @@ $(function(){
   // メッセージ一覧にいる場合のみチャットログをリロードする
   logArea[0] ? setInterval(reloadMessages, 5000): null;
   
+  // inputフォームがsubmitされた際に非同期通信を行いチャットログに追加する
   inputForm.on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
