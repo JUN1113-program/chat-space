@@ -38,7 +38,7 @@ $(function(){
       });
     })
     .fail(function() {
-      console.log('error');
+      window.alert("自動更新に失敗しました");
     });
   };
 
