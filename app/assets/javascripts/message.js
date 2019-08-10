@@ -6,7 +6,7 @@ $(function(){
 
   function buildHTML(message){
     var content = message.content ?`<p class='log-area__log__text'>${message.content}</p>` : "";
-    var image = message.image ?`<img class="log-area__log__image" src= ${message.image}/>` : "";
+    var image = message.image ?`<img class="log-area__log__image" src= ${message.image}>` : "";
     var html = `
       <div class = log-area__log data-id = "${message.id}">
         <div class = log-area__log__top>
@@ -24,10 +24,6 @@ $(function(){
     var last_message_id = $(".log-area .log-area__log:last")[0].dataset.id;
     var groupid = logArea[0].dataset.groupid;
     var url = `/groups/${groupid}/api/messages`;
-
-    console.log(last_message_id);
-    console.log(groupid);
-    console.log(url);
     $.ajax({
       url: url,
       type: 'get',
@@ -64,7 +60,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data.image);
       var html = buildHTML(data);
       document.forms["new_message"].reset();
       logArea.append(html);
