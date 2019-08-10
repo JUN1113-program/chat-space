@@ -26,6 +26,8 @@ body{
     }
   }
   &__groups{
+    height: 100%;
+    overflow: scroll;
     font-size: 15px;
     padding: 0 20px;
     &__group{
@@ -77,13 +79,15 @@ body{
   .log-area{
     padding: 146px 40px 100px;
     background-color: #fafafa;
-    min-height: 100vh;
+    min-height: calc(100vh - 250px);
     height: auto;
     &__log{
       padding: 0px 0px 40px;
+      &__top{
+        display: flex;
+      }
       &__name{
         @include font-data($light-black, 16px, bold);
-        float: left;
         margin-right: 10px;
         padding-bottom: 10px;
       }
@@ -92,7 +96,6 @@ body{
       }
       &__text{
         @include font-data($light-black, 14px);
-        clear: both;
       }
     }
   }

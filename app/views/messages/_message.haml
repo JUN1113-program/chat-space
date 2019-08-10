@@ -1,9 +1,10 @@
 - id = message.id
 .log-area__log{"data-id": id}
-  %p.log-area__log__name  
-    = message.user.name
-  %p.log-area__log__date
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .log-area__log__top
+    %p.log-area__log__name  
+      = message.user.name
+    %p.log-area__log__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
   - if message.content.present?
     %p.log-area__log__text
       = message.content

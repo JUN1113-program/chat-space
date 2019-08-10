@@ -9,8 +9,10 @@ $(function(){
     var image = message.image ?`<img class="log-area__log__image" src= ${message.image}/>` : "";
     var html = `
       <div class = log-area__log data-id = "${message.id}">
-        <p class='log-area__log__name'>${message.name}</p>
-        <p class='log-area__log__date'>${message.time}</p>
+        <div class = log-area__log__top>
+          <p class='log-area__log__name'>${message.name}</p>
+          <p class='log-area__log__date'>${message.time}</p>
+        </div>
         ${content}
         ${image}
       </div>`
@@ -19,10 +21,13 @@ $(function(){
 
   // 最新のチャットログを取得しlogareaに追加する
   var reloadMessages = function() {
-    var last_message_id = $(".log-area div:last")[0].dataset.id;
+    var last_message_id = $(".log-area .log-area__log:last")[0].dataset.id;
     var groupid = logArea[0].dataset.groupid;
     var url = `/groups/${groupid}/api/messages`;
 
+    console.log(last_message_id);
+    console.log(groupid);
+    console.log(url);
     $.ajax({
       url: url,
       type: 'get',
@@ -43,7 +48,7 @@ $(function(){
   };
 
   // メッセージ一覧にいる場合のみチャットログをリロードする
-  logArea[0] ? setInterval(reloadMessages, 5000): null;
+  logArea[0] ? setInterval(reloadMessages, 1000): null;
   
   // inputフォームがsubmitされた際に非同期通信を行いチャットログに追加する
   inputForm.on("submit", function(e){
@@ -59,9 +64,10 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      console.log(data.image);
       var html = buildHTML(data);
-      logArea.append(html);
       document.forms["new_message"].reset();
+      logArea.append(html);
       var height = logArea.height();
       $('html,body').animate({scrollTop: height}, 500, 'swing');
       button.attr('disabled',false);
