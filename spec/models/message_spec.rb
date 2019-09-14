@@ -2,7 +2,6 @@ require "rails_helper"
 describe Message do
   describe "Messageモデルのテストだよ" do
     context "保存できる場合だよ"  do
-      
       it "メッセージだけで保存ができるよ" do
         message = build(:message, image:"")
         expect(message).to be_valid
